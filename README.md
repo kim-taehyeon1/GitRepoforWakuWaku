@@ -1,1 +1,2 @@
 # GitRepoforWakuWaku
+test takasaki
