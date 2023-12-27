@@ -1,0 +1,61 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: "AWS CloudFormation Sample Template VPC"
+
+#######################################
+#####     Define Parameters
+#######################################
+Parameters:
+  VPCCIDR:
+    Description: "CIDR range of VPC"
+    Type: String
+  # Tags
+  Project:
+    Description: "Project Name"
+    Type: String
+  Environment:
+    Description: "Environment Name.(prod, stg, dev,etc...)"
+    Type: String
+  UserName:
+    Description: "Name of IAM user"
+    Type: String
+  
+#######################################
+#####  Define Mappings:
+#######################################
+# Mappings:
+
+#######################################
+#####    Define Conditions
+#######################################
+# Conditions:
+
+#######################################
+#####    Define Resources
+#######################################
+Resources:
+
+  VPC:
+    Type: "AWS::EC2::VPC"
+    Properties:
+      CidrBlock: !Ref VPCCIDR
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: !Ref Project
+        - Key: Project
+          Value: !Ref Project
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: UserName
+          Value: !Ref UserName
+
+#######################################
+## Declare Outputs
+#######################################
+Outputs:
+  VpcId:
+    Value: !Ref VPC
+    Export:
+      Name: "VpcId"
