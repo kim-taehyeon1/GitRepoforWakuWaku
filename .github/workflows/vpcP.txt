@@ -1,0 +1,4 @@
+VPCCIDR=10.40.0.0/16
+Project:taehyeki
+Environment:dev
+UserName:taehyekiUSER
