@@ -30,7 +30,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       
 
-      
+
       - name: check it out
         uses: actions/checkout@v3
 
@@ -50,3 +50,4 @@ jobs:
             --template-file ${TEMPLATE_NAME} \
             --parameter-overrides Environment=dev \
             --no-fail-on-empty-changeset
+            --parameter-overrides $(cat vpcP.txt )
