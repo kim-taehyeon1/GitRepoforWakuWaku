@@ -50,4 +50,4 @@ jobs:
             --template-file ${TEMPLATE_NAME} \
             --parameter-overrides Environment=dev \
             --no-fail-on-empty-changeset
-            --parameter-overrides $(cat vpcP.props)
+            --parameter-overrides 'VPCCIDR=10.40.0.0/16' 'Project=taehyeki' 'Environment=dev' 'UserName=taehyekiUSER'
